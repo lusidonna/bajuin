@@ -117,7 +117,7 @@ jq(function(){
     <!-- header end -->  
     <!-- main body start -->
     <div class='container'>
-      <div class='row mt-4'>
+      <!-- div class='row mt-4' -->
         <!-- *** HEADER TITLE *** -->
   		<b:if cond='data:view.isLabelSearch'>
 		<b:elseif cond='data:view.search.query'/>
@@ -230,8 +230,8 @@ jq(function(){
       <b:if cond='data:view.isHomepage'>
         <div class='container'>  <div id='article_related'/></div>
       </b:if>
-      </div></div>
-    <div>
+      </div>
+    <!-- /div -->
     <!-- main body end -->
     <!-- footer start -->
     <div class='text-muted py-3 mt-4 border-top'>
