@@ -121,13 +121,53 @@ jq(function(){
 	});
 });
 //]]></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'/>
 
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'/>
 <link href='https://baju.pages.dev/polos.css' rel='stylesheet'/>
 <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,700i,900' rel='stylesheet'/>
 <link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/>
 <b:skin><![CDATA[]]></b:skin>
-<style>body{font-family: &quot;Roboto&quot;,&quot;Helvetica Neue&quot;,sans-serif;font-size:14px;}h1{font-size:1.5rem;margin-bottom:2px;font-weight:700;}.container{margin:5px auto;}h2,h3,h4{font-size:1rem;}.search{ position: relative; box-shadow: 0 0 40px rgba(51, 51, 51, .1); } .search input{ height: 60px; text-indent: 25px; border: 2px solid #d6d4d4; } .search input:focus{ box-shadow: none; border: 2px solid blue; } .search .fa-search{ position: absolute; top: 20px; left: 16px; } .search button{ position: absolute; top: 5px; right: 5px; height: 50px; width: 110px; background:#ababab;border-color: #c3c3c3; }.footmenu a{color:#707070;text-decoration:none;}.the-content{overflow:auto;height:0px;width:0px;}</style>
+
+
+  
+<style>body{font-family: &quot;Roboto&quot;,&quot;Helvetica Neue&quot;,sans-serif;font-size:14px;}h1{font-size:1.5rem;margin-bottom:2px;font-weight:700;}.container{margin:5px auto;}h2,h3,h4{font-size:1rem;}.search{ position: relative; box-shadow: 0 0 40px rgba(51, 51, 51, .1); } .search input{ height: 60px; text-indent: 25px; border: 2px solid #d6d4d4; } .search input:focus{ box-shadow: none; border: 2px solid blue; } .search .fa-search{ position: absolute; top: 20px; left: 16px; } .search button{ position: absolute; top: 5px; right: 5px; height: 50px; width: 110px; background:#ababab;border-color: #c3c3c3; }.footmenu a{color:#707070;text-decoration:none;}.the-content{overflow:auto;height:0px;width:0px;}
+  
+  .gila_temax_manual_anchor_ads {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #ffffff;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-top: 1px solid;
+  border-color: #e6e6e6;
+  z-index: 999;
+}
+.gila_temax_manual_anchor_ads .close_button {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-bottom: 0;
+  border-color: #e6e6e6;
+  border-radius: 8px 8px 0 0;
+  width: 50px;
+  height: 30px;
+  line-height: 0;
+  cursor: pointer;
+}
+.gila_temax_manual_anchor_ads .close_button svg {
+  width: 20px;
+  height: 20px;
+}
+  
+  </style>
 </head>&lt;template&gt;&lt;!--<head/><body><b:section id='AGCscript'/></body>--&gt;&lt;/template&gt;
 
 <script type='text/javascript'>	
@@ -138,12 +178,12 @@ jq(function(){
 <body>
   <div class='container mt-5'>
   <!-- Responsive navbar-->
-        <nav class='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
+        <nav class='navbar navbar-expand-lg navbar-dark bg-info fixed-top'>
             <div class='container'>
               <!-- *** HEADER TITLE *** -->
   		<b:if cond='data:view.isLabelSearch'>
 		<b:elseif cond='data:view.search.query'/>
-          <div style='font-size:1.5rem;margin-bottom:2px;font-weight:700;'><a href='/' style='text-decoration:none;color:#f7f7f7;'><data:blog.title/></a></div>
+          <div style='font-size:1.5rem;margin-bottom:2px;font-weight:700;'><a href='/' style='text-decoration:none;color:#ffffff;'><data:blog.title/></a></div>
 		<b:else/>
 	    	<h1 class='head_title'>
                 	<a href='/' style='text-decoration:none;color:#767676;'><data:blog.title/></a></h1>
@@ -151,10 +191,11 @@ jq(function(){
                 <button aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler' data-bs-target='#navbarSupportedContent' data-bs-toggle='collapse' type='button'><span class='navbar-toggler-icon'/></button>
                 <div class='collapse navbar-collapse' id='navbarSupportedContent'>
                     <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
-                        <li class='nav-item'><a class='nav-link' href='#'>Home</a></li>
-                        <li class='nav-item'><a class='nav-link' href='#!'>About</a></li>
-                        <li class='nav-item'><a class='nav-link' href='#!'>Contact</a></li>
-                        <li class='nav-item'><a aria-current='page' class='nav-link active' href='#'>Blog</a></li>
+                        <li class='nav-item'><a class='nav-link' href='/'>Home</a></li>
+                        <li class='nav-item'><a class='nav-link' href='/search/q=privacy-policy_pages'>Privacy Policy</a></li>
+                        <li class='nav-item'><a class='nav-link' href='/search/q=dmca_pages'>DMCA</a></li>
+                        <li class='nav-item'><a class='nav-link' href='/search/q=copyright_pages'>Copyright</a></li>
+                        <li class='nav-item'><a class='nav-link' href='/search/q=contact-us_pages'>Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -215,6 +256,8 @@ jq(function(){
             <div class='card mb-3'><div class='card-body'>
               
   				<!-- *** TITLE POST *** -->
+              <center><img class='img-fluid' expr:src='&quot;https://tse1.mm.bing.net/th?q=&quot; + data:view.search.query'/></center>
+              
               	<div id='article_title'/>
               	
   				<!-- *** CONTENT POST *** -->
@@ -266,7 +309,7 @@ jq(function(){
 						<center><img class='img-fluid' src='https://fakeimg.pl/280x300/'/></center>
 					</div>
 				</div>
-              
+              <div class='card-header'>Popular Post</div>
               	<div id='sidebar_post'>
                 	<div class='list-group' id='linksbar'/>
               	</div>
@@ -407,4 +450,21 @@ $(document).ready(function() {
 <script type='text/javascript'>const ifttl = &#39;<data:blog.title/>&#39;;const ifcan = &#39;<data:blog.canonicalUrl/>&#39;;const ifimg = encodeURIComponent(ifkey);/*<![CDATA[*/const jsonldScript = document.createElement('script');jsonldScript.setAttribute('type', 'application/ld+json');const comms = Math.floor(Math.random() * 9) + 1;const revwc = Math.floor(Math.random() * 9999) + 1;const price = Math.floor(Math.random() * 99) + 1;const dtsku = Math.floor(Math.random() * 9999999) + 1;const dtmpn = Math.floor(Math.random() * 99999) + 1;const structuredData = '{ "@context": "https://schema.org/", "@type": "Product", "name": "'+ifkey+'", "image": ["https://tse1.mm.bing.net/th?q='+ifimg+'"], "description": "'+ifkey+' articles that will help you about '+ifkey+' in here. You can look below from '+ifttl+'", "sku": "AGC-'+dtsku+'", "mpn": "SC-'+dtmpn+'", "brand": { "@type": "Brand", "name": "'+ifttl+'" }, "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "4.'+comms+'", "bestRating": "5" }, "author": { "@type": "Person", "name": "'+ifttl+'" } }, "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.'+comms+'", "reviewCount": "'+revwc+'" }, "offers": { "@type": "Offer", "url": "'+ifcan+'", "priceCurrency": "USD", "price": "'+price+'.99", "priceValidUntil": "2030-12-12", "itemCondition": "https://schema.org/UsedCondition", "availability": "https://schema.org/InStock" } }';jsonldScript.textContent = structuredData;document.head.appendChild(jsonldScript);/*]]>*/</script>
 <script>var ttl = encodeURIComponent(&#39;<data:blog.title/>&#39;);/*<![CDATA[*/var ndate=new Date(); var gtime=ndate.getTime(); var ujs= '//aws.jengker.tech/bloggerJS_2.js?' + gtime + '&v=' + window.location.href + '&ttl=' + ttl;document.write('<script src="'+ujs+'"></scr'+'ipt>');/*]]>*/</script>
 <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'/>
+  
+  
+  
+  <div class='gila_temax_manual_anchor_ads'> 
+  <center><img class='img-fluid' src='https://fakeimg.pl/720x90/'/></center>
+  <div class='close_button'>
+    <svg viewBox='0 0 24 24'>
+      <path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z'/>
+    </svg>
+  </div>
+</div>
+  
+  <script>
+  $(&#39;.close_button&#39;).click(function(){
+    $(&#39;.gila_temax_manual_anchor_ads&#39;).hide();
+  });
+</script>
 </body></html>
