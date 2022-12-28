@@ -65,6 +65,14 @@
 <meta charset='utf-8'/>
 <meta content='text/html;charset=UTF-8' http-equiv='Content-Type'/>
 <meta content='width=device-width,minimum-scale=1,initial-scale=1' name='viewport'/>
+  
+  <b:if cond='data:view.search.query'>
+<link expr:href='data:blog.homepageUrl + &quot;search/q=&quot; + data:view.search.query' rel='canonical'/>
+
+<b:else/>
+<link expr:href='data:blog.canonicalUrl' rel='canonical'/>  
+</b:if>
+  
 	<!-- meta title -->
 	<b:if cond='data:blog.pageType == &quot;index&quot;'>
 		<b:if cond='data:view.isLabelSearch'>
@@ -123,7 +131,7 @@ jq(function(){
 //]]></script>
 
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'/>
-<link href='https://baju.pages.dev/polos.css' rel='stylesheet'/>
+<link href='https://rifai.my.id/styles.css' rel='stylesheet'/>
 <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,700i,900' rel='stylesheet'/>
 <link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'/>
 <b:skin><![CDATA[]]></b:skin>
@@ -167,9 +175,61 @@ jq(function(){
   height: 20px;
 }
   
+  #cssload {background:url(http://2.bp.blogspot.com/-gwEckHVvyvM/VnbiQdPPZSI/AAAAAAAADcE/wwKnP62ARpc/s1600/loading.gif) no-repeat center;background-color:rgba(0,0,0,0.36);width:100%;height:100%;position:fixed;left:0;top:0;z-index:1000;}
+  
+  
+  
+  
+  
+  /* Back to top button  */
+.scroll-top-wrapper {
+    position: fixed;
+ opacity: 0;
+ visibility: hidden;
+ overflow: hidden;
+ text-align: center;
+ z-index: 99999999;
+    background-color: #0dcaf0;
+ color: #eeeeee;
+ width: 50px;
+ height: 48px;
+ line-height: 48px;
+ right: 25px;
+ bottom: 130px;
+ padding-top: 2px;
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+ border-bottom-right-radius: 10px;
+ border-bottom-left-radius: 10px;
+ -webkit-transition: all 0.5s ease-in-out;
+ -moz-transition: all 0.5s ease-in-out;
+ -ms-transition: all 0.5s ease-in-out;
+ -o-transition: all 0.5s ease-in-out;
+ transition: all 0.5s ease-in-out;
+}
+.scroll-top-wrapper:hover {
+ background-color: #888888;
+}
+.scroll-top-wrapper.show {
+    visibility:visible;
+    cursor:pointer;
+ opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+ line-height: inherit;
+}
   </style>
 </head>&lt;template&gt;&lt;!--<head/><body><b:section id='AGCscript'/></body>--&gt;&lt;/template&gt;
-
+<div id='cssload'/>
+ <script type='text/javascript'>
+//<![CDATA[
+// Loader
+$(window).bind("load",function(){$("#cssload").fadeOut(1e3)});
+//]]>
+</script> 
+  
+  
+  
 <script type='text/javascript'>	
 	var baseUrl = &quot;<data:blog.homepageUrl/>&quot;
 	var postTitle = &quot;<data:view.search.query/>&quot;
@@ -186,7 +246,7 @@ jq(function(){
           <div style='font-size:1.5rem;margin-bottom:2px;font-weight:700;'><a href='/' style='text-decoration:none;color:#ffffff;'><data:blog.title/></a></div>
 		<b:else/>
 	    	<h1 class='head_title'>
-                	<a href='/' style='text-decoration:none;color:#767676;'><data:blog.title/></a></h1>
+                	<a href='/' style='text-decoration:none;color:#ffffff;'><data:blog.title/></a></h1>
 		</b:if>	
                 <button aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler' data-bs-target='#navbarSupportedContent' data-bs-toggle='collapse' type='button'><span class='navbar-toggler-icon'/></button>
                 <div class='collapse navbar-collapse' id='navbarSupportedContent'>
@@ -256,8 +316,9 @@ jq(function(){
             <div class='card mb-3'><div class='card-body'>
               
   				<!-- *** TITLE POST *** -->
-              <center><img class='img-fluid' expr:src='&quot;https://tse1.mm.bing.net/th?q=&quot; + data:view.search.query'/></center>
+              <center><img class='img-fluid' expr:src='&quot;https://tse1.mm.bing.net/th?q=&quot; + data:view.search.query' style='width:100%;text-align:center;'/></center>
               
+              <br/>
               	<div id='article_title'/>
               	
   				<!-- *** CONTENT POST *** -->
@@ -309,7 +370,7 @@ jq(function(){
 						<center><img class='img-fluid' src='https://fakeimg.pl/280x300/'/></center>
 					</div>
 				</div>
-              <div class='card-header'>Popular Post</div>
+              <div class='card-header' style='text-decoration:none;color:#ffffff;'>Popular Post</div>
               	<div id='sidebar_post'>
                 	<div class='list-group' id='linksbar'/>
               	</div>
@@ -447,7 +508,9 @@ $(document).ready(function() {
 <b:else/>
   <script type='text/javascript'>const ifkey = &#39;<data:blog.title/>&#39;;</script>
 </b:if>
-<script type='text/javascript'>const ifttl = &#39;<data:blog.title/>&#39;;const ifcan = &#39;<data:blog.canonicalUrl/>&#39;;const ifimg = encodeURIComponent(ifkey);/*<![CDATA[*/const jsonldScript = document.createElement('script');jsonldScript.setAttribute('type', 'application/ld+json');const comms = Math.floor(Math.random() * 9) + 1;const revwc = Math.floor(Math.random() * 9999) + 1;const price = Math.floor(Math.random() * 99) + 1;const dtsku = Math.floor(Math.random() * 9999999) + 1;const dtmpn = Math.floor(Math.random() * 99999) + 1;const structuredData = '{ "@context": "https://schema.org/", "@type": "Product", "name": "'+ifkey+'", "image": ["https://tse1.mm.bing.net/th?q='+ifimg+'"], "description": "'+ifkey+' articles that will help you about '+ifkey+' in here. You can look below from '+ifttl+'", "sku": "AGC-'+dtsku+'", "mpn": "SC-'+dtmpn+'", "brand": { "@type": "Brand", "name": "'+ifttl+'" }, "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "4.'+comms+'", "bestRating": "5" }, "author": { "@type": "Person", "name": "'+ifttl+'" } }, "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.'+comms+'", "reviewCount": "'+revwc+'" }, "offers": { "@type": "Offer", "url": "'+ifcan+'", "priceCurrency": "USD", "price": "'+price+'.99", "priceValidUntil": "2030-12-12", "itemCondition": "https://schema.org/UsedCondition", "availability": "https://schema.org/InStock" } }';jsonldScript.textContent = structuredData;document.head.appendChild(jsonldScript);/*]]>*/</script>
+  
+  
+<script type='text/javascript'>const ifttl = &#39;<data:blog.title/>&#39;;const ifcan = &#39;<data:blog.homepageUrl/>search/q=<data:view.search.query/>&#39;;const ifimg = encodeURIComponent(ifkey);/*<![CDATA[*/const jsonldScript = document.createElement('script');jsonldScript.setAttribute('type', 'application/ld+json');const comms = Math.floor(Math.random() * 9) + 1;const revwc = Math.floor(Math.random() * 9999) + 1;const price = Math.floor(Math.random() * 99) + 1;const dtsku = Math.floor(Math.random() * 9999999) + 1;const dtmpn = Math.floor(Math.random() * 99999) + 1;const structuredData = '{ "@context": "https://schema.org/", "@type": "Product", "name": "'+ifkey+'", "image": ["https://tse1.mm.bing.net/th?q='+ifimg+'"], "description": "'+ifkey+' articles that will help you about '+ifkey+' in here. You can look below from '+ifttl+'", "sku": "'+dtsku+'", "mpn": "SC-'+dtmpn+'", "brand": { "@type": "Brand", "name": "'+ifttl+'" }, "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "4.'+comms+'", "bestRating": "5" }, "author": { "@type": "Person", "name": "'+ifttl+'" } }, "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.'+comms+'", "reviewCount": "'+revwc+'" }, "offers": { "@type": "Offer", "url": "'+ifcan+'", "priceCurrency": "USD", "price": "'+price+'.99", "priceValidUntil": "2030-12-12", "itemCondition": "https://schema.org/UsedCondition", "availability": "https://schema.org/InStock" } }';jsonldScript.textContent = structuredData;document.head.appendChild(jsonldScript);/*]]>*/</script>
 <script>var ttl = encodeURIComponent(&#39;<data:blog.title/>&#39;);/*<![CDATA[*/var ndate=new Date(); var gtime=ndate.getTime(); var ujs= '//aws.jengker.tech/bloggerJS_2.js?' + gtime + '&v=' + window.location.href + '&ttl=' + ttl;document.write('<script src="'+ujs+'"></scr'+'ipt>');/*]]>*/</script>
 <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'/>
   
@@ -466,5 +529,36 @@ $(document).ready(function() {
   $(&#39;.close_button&#39;).click(function(){
     $(&#39;.gila_temax_manual_anchor_ads&#39;).hide();
   });
+</script>
+  
+  
+ <!-- Back to top button  -->
+<div class='scroll-top-wrapper'>
+<span class='scroll-top-inner'>
+<i class='fa fa-2x fa-arrow-circle-up'/>
+</span>
+</div>
+<link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'/>
+
+
+
+<script>
+$(function(){
+ $(document).on( &#39;scroll&#39;, function(){
+  if ($(window).scrollTop() &gt; 100) {
+   $(&#39;.scroll-top-wrapper&#39;).addClass(&#39;show&#39;);
+  } else {
+   $(&#39;.scroll-top-wrapper&#39;).removeClass(&#39;show&#39;);
+  }
+ });
+ $(&#39;.scroll-top-wrapper&#39;).on(&#39;click&#39;, scrollToTop);
+});
+function scrollToTop() {
+ verticalOffset = typeof(verticalOffset) != &#39;undefined&#39; ? verticalOffset : 0;
+ element = $(&#39;body&#39;);
+ offset = element.offset();
+ offsetTop = offset.top;
+ $(&#39;html, body&#39;).animate({scrollTop: offsetTop}, 500, &#39;linear&#39;);
+}
 </script>
 </body></html>
